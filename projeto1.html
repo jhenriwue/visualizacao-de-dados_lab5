@@ -1,0 +1,131 @@
+<!--
+	THIS EXAMPLE WAS DOWNLOADED FROM https://echarts.apache.org/examples/en/editor.html?c=area-simple&code=DYUwLgBAJghmIQLwQNoCYAMBGAzAGkywBYDsBWUrANkoHZKAOSgTlMzazbTZwF0BuAFChIsMDCSo0DDADoMeQRGVEMRWTSXKcDKrPpaIaZmXmLlRrFlkVDtKuqaGizWrNaGyza_kM6GNubKzDoaQRA49hoCggD2AA5gAJaxAHaSAN5aYLGxwMnxAFwQWRYQYABOSQDm1SAVxQDkMAAeSQDOjeEQ8bHtSclpxQBmAK6pAMaD6QAUiQCUJYYWFeCjFekoiSgYvHgQjVgYAKSNMWUAvloXQclgoMWlFqDDYE0TIKnwFV3L8C1vA4ANTyowAtggoAgJgALUYANwkMAm4NGwBgsAgqQkADEYAAvT6YgDCMA2MAAXwAjCQzQg4CASTBoHDzRrXW65YBU2ItR7LYYgODrED8srKMQwABauTBYvFygAngBBNrtACSqShfIOqTSIHZCpuy2Uq3aOVWj2NCvaMHhIGVGrBMDqVuWV2U1ogLVVHXlyjAiviooOEzgIGqsQqit-ZR541g0YA4jAihBhjBgO0QN1JcUxCAOVoVWr_eUgyHGojgKMDd141qyYqU2mdvtDhgTmcixK4NLZcUUMsnmVA8GmklUv0obHxeayYCFCaIETikd3d0RxZ5xVF91lKuIOvLlo9lps1UQO1B8Pl9iIU08QBrBAAET7s9HFaawEndeX7SKmCPLAE0eqpP-NowGC8S_qk1Q_mAYBUp-FgDCAYIAMqBg8SwKsoEx5FGTQVNUVIzLQChHjgnBGDgGBssuXplGSQrYYquFbmUhHAMRWIgAA7iusILu0sjVBUqYwkkEyyAAMn-ZJJpJUBJJ8YAzFRWn7LRQ74RYXH4bEwzDNme7LgqPF8Y0pHkZROkyDpzAMYa-kQMx-GGQqxmmeAa77vhVkNActkUVRWDsEezmMW57kWRAvDzExAV5tAfbuqeggXPwQA
+	⚠ Please be aware that this chart is not an official demo of Apache ECharts but is made by user-generated code.
+-->
+<!DOCTYPE html>
+<html lang="en" style="height: 100%">
+<head>
+  <meta charset="utf-8">
+</head>
+<body style="height: 100%; margin: 0">
+  <div id="container" style="height: 100%"></div>
+
+  
+  <script type="text/javascript" src="https://fastly.jsdelivr.net/npm/echarts@5/dist/echarts.min.js"></script>
+  
+  <!-- Uncomment this line if you want to dataTool extension
+  <script type="text/javascript" src="https://fastly.jsdelivr.net/npm/echarts@5/dist/extension/dataTool.min.js"></script>
+  -->
+  <!-- Uncomment this line if you want to use gl extension
+  <script type="text/javascript" src="https://echarts.apache.org/en/js/vendors/echarts-gl/dist/echarts-gl.min.js"></script>
+  -->
+  <!-- Uncomment this line if you want to echarts-stat extension
+  <script type="text/javascript" src="https://echarts.apache.org/en/js/vendors/echarts-stat/dist/ecStat.min.js"></script>
+  -->
+  <!-- Uncomment this line if you want to echarts-graph-modularity extension
+  <script type="text/javascript" src="https://echarts.apache.org/en/js/vendors/echarts-graph-modularity/dist/echarts-graph-modularity.min.js"></script>
+  -->
+  <!-- Uncomment this line if you want to use map
+  <script type="text/javascript" src="https://fastly.jsdelivr.net/npm/echarts@4.9.0/map/js/world.js"></script>
+  -->
+  <!-- Uncomment these two lines if you want to use bmap extension
+  <script type="text/javascript" src="https://api.map.baidu.com/api?v=3.0&ak=YOUR_API_KEY"></script>
+  <script type="text/javascript" src="https://fastly.jsdelivr.net/npm/echarts@5/dist/extension/bmap.min.js"></script>
+  -->
+
+  <script type="text/javascript">
+    var dom = document.getElementById('container');
+    var myChart = echarts.init(dom, null, {
+      renderer: 'canvas',
+      useDirtyRect: false
+    });
+    var app = {};
+    
+    var option;
+
+    let date = [2013,2014,2015,2016,2017,2018,2019,2020,2021,2022,2023];
+let data = [280.0,
+   404.6,
+   386.7,
+   295.0,
+   211.5,
+   764.8,
+   497.9,
+   591.3,
+   388.5,
+   938.6,
+   376.6];
+option = {
+  tooltip: {
+    trigger: 'axis',
+    position: function (pt) {
+      return [pt[0], '10%'];
+    }
+  },
+  title: {
+    left: 'center',
+    text: 'Volume de chuva acumulada na Fazenda Carnaúba (2013 a 2023)'
+  },
+  toolbox: {
+    feature: {
+      dataZoom: {
+        yAxisIndex: 'none'
+      },
+      restore: {},
+      saveAsImage: {}
+    }
+  },
+  xAxis: {
+    type: 'category',
+    boundaryGap: false,
+    data: date
+  },
+  yAxis: {
+    type: 'value',
+    boundaryGap: [0, '100%']
+  },
+  dataZoom: [
+    {
+      type: 'inside',
+      start: 0,
+      end: 10
+    },
+    {
+      start: 0,
+      end: 10
+    }
+  ],
+  series: [
+    {
+      name: 'Fake Data',
+      type: 'line',
+      symbol: 'none',
+      sampling: 'lttb',
+      itemStyle: {
+        color: 'rgb(70, 131, 230)'
+      },
+      areaStyle: {
+        color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [
+          {
+            offset: 0,
+            color: 'rgb(70, 180, 190)'
+          },
+          {
+            offset: 1,
+            color: 'rgb(70, 120, 190)'
+          }
+        ])
+      },
+      data: data
+    }
+  ]
+};
+
+    if (option && typeof option === 'object') {
+      myChart.setOption(option);
+    }
+
+    window.addEventListener('resize', myChart.resize);
+  </script>
+</body>
+</html>
