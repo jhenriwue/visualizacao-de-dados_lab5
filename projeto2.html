@@ -87,12 +87,6 @@
     {
       type: 'value',
       name: 'Volume (mm)',
-      axisLabel: {
-        formatter: function (a) {
-          a = +a;
-          return isFinite(a) ? echarts.format.addCommas(+a / 1000) : '';
-        }
-      }
     }
   ],
   dataZoom: [
